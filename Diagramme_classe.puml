@@ -1,0 +1,51 @@
+@startuml
+
+class Etudiant{
+-id : Identite
+-form : Formation
+-TreeMap<String, ArrayList<Double>> : result
+
++Etudiant(Identite, Formation, TreeMap<String, ArrayList<Double>>)
++ajouterNote(String, double)
++calculerMoyenne(String) : double
++calculerMoyenneGenerale() : double
+}
+
+class Identite{
+-nip : String
+-prenom : String
+-nom : String
+
++Identite(String, String, String)
++toString() : String
+}
+
+class Groupe{
+-formation : String
+
++Groupe(String)
++addEtudiant(Etudiant)
++moyGroupe(String) : double
++moyGenerale() : double
++triAlpha()
++triNonApha()
++triPasMixte()
+}
+
+class Formation{
+
+-id : entier
+-TreeMap<String, Double>
+
++Formation(int, TreeMap<String,Double>
++ajouterMatiere(String, double)
++supMatiere(String)
++getMatieres() : TreeMap<String, Double>
+}
+
+Etudiant "1"<--left"*" Groupe
+Etudiant "*"-->"1" Identite
+Etudiant "*"-->"1" Formation
+
+
+@enduml
