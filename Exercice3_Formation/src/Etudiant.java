@@ -1,5 +1,5 @@
 import java.util.*;
-public class Etudiant {
+public class Etudiant implements Comparable<Etudiant>{
 
     public Identite id;
     public Formation form;
@@ -9,7 +9,12 @@ public class Etudiant {
 
         this.id = iden;
         this.form = format;
-        this.result = new TreeMap<>();
+
+
+        for(String s : form.getMatieres().keySet()){
+            result.put(s, new ArrayList<>());
+        }
+
     }
 
     public void ajouterNote(String mat, double note){
@@ -77,11 +82,34 @@ public class Etudiant {
     }
 
 
+
     public TreeMap<String, ArrayList<Double>> getResult() {
         return result;
     }
 
-    public ArrayList<Double> notes(String cle){
+    public ArrayList<Double> notes(String cle) {
         return result.get(cle);
+    }
+
+    @Override
+    public int compareTo(Etudiant o) {
+        if(this.id.nom.compareTo(o.id.nom) > 0){
+            return 1;
+        }
+        else if (this.id.nom.compareTo(o.id.nom) < 0) {
+            return -1;
+        }
+        else{
+            if(this.id.prenom.compareTo(o.id.prenom) > 0){
+                return 1;
+            }
+            else if (this.id.prenom.compareTo(o.id.prenom) < 0) {
+                return -1;
+            }
+            else{
+                return 0;
+            }
+        }
+
     }
 }

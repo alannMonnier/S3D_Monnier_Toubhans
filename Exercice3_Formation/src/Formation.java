@@ -1,3 +1,5 @@
+
+
 import java.util.TreeMap;
 
 /**
@@ -19,6 +21,10 @@ public class Formation {
     public Formation(int _id){
         this.id = _id;
         this.matieres = new TreeMap<>();
+    }
+
+    public int getID(){
+        return this.id;
     }
 
 
