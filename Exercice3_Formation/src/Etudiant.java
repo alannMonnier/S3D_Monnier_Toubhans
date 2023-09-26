@@ -1,16 +1,19 @@
 package com.example.tp2ex3;
 import java.util.*;
-public class Etudiant {
+public class Etudiant implements Comparable<Etudiant>{
 
     public Identite id;
     public Formation form;
     public TreeMap<String, ArrayList<Double>> result;
 
-    public Etudiant(Identite iden, Formation format, TreeMap<String, ArrayList<Double>> res){
+    public Etudiant(Identite iden, Formation format){
 
         this.id = iden;
         this.form = format;
-        this.result = res;
+
+        for(String s : form.getMatieres().keySet()){
+            result.put(s, new ArrayList<>());
+        }
     }
 
     public void ajouterNote(String mat, double note){
@@ -75,5 +78,26 @@ public class Etudiant {
         }
 
         return (somme/sommecoeff);
+    }
+
+    @Override
+    public int compareTo(Etudiant o) {
+        if(this.id.nom.compareTo(o.id.nom) > 0){
+            return 1;
+        }
+        else if (this.id.nom.compareTo(o.id.nom) < 0) {
+            return -1;
+        }
+        else{
+            if(this.id.prenom.compareTo(o.id.prenom) > 0){
+                return 1;
+            }
+            else if (this.id.prenom.compareTo(o.id.prenom) < 0) {
+                return -1;
+            }
+            else{
+                return 0;
+            }
+        }
     }
 }
