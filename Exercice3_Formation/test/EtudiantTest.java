@@ -21,9 +21,9 @@ class EtudiantTest {
         f1.ajouterMatiere("Français", 2);
         f1.ajouterMatiere("Math", 4);
         f1.ajouterMatiere("NSI", 8);
-        f1.ajouterMatiere("");
+        f1.ajouterMatiere("Cine", 3);
         e1 = new Etudiant(i1, f1);
-        e1.ajouterNote("Français", 12);
+
         e1.ajouterNote("Math", 15);
         e1.ajouterNote("Math", 5);
         e1.ajouterNote("NSI", 18);
@@ -43,8 +43,9 @@ class EtudiantTest {
         TreeMap<String, ArrayList<Double>> result = e1.getResult();
         ArrayList<Double> notes = result.get("Français");
 
+
         assertEquals(e1.getResult().containsKey("Français"), true, "La valeur devrait être présente");
-        assertEquals(e1.notes("Français").contains(6), true, "Mauvaise valeur attendu");
+        assertEquals(e1.notes("Français").contains(6.0), true, "Mauvaise valeur attendu");
     }
 
 
@@ -53,6 +54,7 @@ class EtudiantTest {
     /**
      * Test que la note ajouter n'est pas comprise entre 0 et 20
      */
+    @org.junit.jupiter.api.Test
     void test_ajouterNoteMauvaiseValeur(){
         // Ajoute note > 20
         e1.ajouterNote("Français", 21);
@@ -74,6 +76,7 @@ class EtudiantTest {
     }
 
     // Test lorsqu'on ajoute une matière inconnue
+    @org.junit.jupiter.api.Test
     void test_ajouterNote_MatiereInconnu(){
         e1.ajouterNote("Sport", 18);
 
@@ -88,7 +91,6 @@ class EtudiantTest {
     // ajouter note matière qui n existe pas
     // calculerMoyenne ok
     // La matière ne possède aucune note
-
     @org.junit.jupiter.api.Test
     void test_calculerMoyenne_ok() {
         double moy = e1.calculerMoyenne("Math");
@@ -97,11 +99,15 @@ class EtudiantTest {
     }
 
     // Test quand la matière ne possède aucune note
+    @org.junit.jupiter.api.Test
     void test_calculerMoyenne_AucuneNote(){
+        double moy = e1.calculerMoyenne("Cine");
 
+        assertEquals(moy, 0, "Ce n est pas la bonne valeur attendue");
     }
 
     // Test quand la matière est inexistante
+    @org.junit.jupiter.api.Test
     void test_calculerMoyenne_matiereNoExistante(){
         double moy = e1.calculerMoyenne("Matiere");
 
@@ -109,6 +115,9 @@ class EtudiantTest {
     }
 
     @org.junit.jupiter.api.Test
-    void calculerMoyenneGenerale() {
+    void calculerMoyenneGenerale_OK() {
+        double moyGeneral = e1.calculerMoyenneGenerale();
+
+        System.out.println(moyGeneral);
     }
 }

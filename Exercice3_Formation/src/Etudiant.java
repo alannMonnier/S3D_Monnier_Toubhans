@@ -9,7 +9,7 @@ public class Etudiant implements Comparable<Etudiant>{
 
         this.id = iden;
         this.form = format;
-
+        this.result = new TreeMap<>();
 
         for(String s : form.getMatieres().keySet()){
             result.put(s, new ArrayList<>());

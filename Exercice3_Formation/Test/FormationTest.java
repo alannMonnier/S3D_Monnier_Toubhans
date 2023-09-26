@@ -1,5 +1,3 @@
-package com.example.tp2ex3;
-
 import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.jupiter.api.Assertions.*;
