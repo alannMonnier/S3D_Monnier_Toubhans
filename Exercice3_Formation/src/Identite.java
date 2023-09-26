@@ -1,4 +1,3 @@
-package com.example.tp2ex3;
 
 public class Identite {
 

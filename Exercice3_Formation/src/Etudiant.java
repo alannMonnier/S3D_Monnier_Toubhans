@@ -1,4 +1,3 @@
-package com.example.tp2ex3;
 import java.util.*;
 public class Etudiant {
 
@@ -6,11 +5,11 @@ public class Etudiant {
     public Formation form;
     public TreeMap<String, ArrayList<Double>> result;
 
-    public Etudiant(Identite iden, Formation format, TreeMap<String, ArrayList<Double>> res){
+    public Etudiant(Identite iden, Formation format){
 
         this.id = iden;
         this.form = format;
-        this.result = res;
+        this.result = new TreeMap<>();
     }
 
     public void ajouterNote(String mat, double note){
@@ -75,5 +74,14 @@ public class Etudiant {
         }
 
         return (somme/sommecoeff);
+    }
+
+
+    public TreeMap<String, ArrayList<Double>> getResult() {
+        return result;
+    }
+
+    public ArrayList<Double> notes(String cle){
+        return result.get(cle);
     }
 }
