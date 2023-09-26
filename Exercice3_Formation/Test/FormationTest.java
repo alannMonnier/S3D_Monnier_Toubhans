@@ -37,7 +37,4 @@ class FormationTest {
         assertEquals(formation2.getMatieres().get("Reseau"), null);
     }
 
-    @org.junit.jupiter.api.Test
-    void getMatieres() {
-    }
 }

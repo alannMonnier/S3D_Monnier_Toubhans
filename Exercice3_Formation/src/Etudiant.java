@@ -1,3 +1,5 @@
+package com.example.tp2ex3;
+
 import java.util.*;
 public class Etudiant implements Comparable<Etudiant>{
 
