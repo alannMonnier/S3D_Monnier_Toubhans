@@ -1,3 +1,5 @@
+package com.example.tp2ex3;
+
 import org.junit.jupiter.api.BeforeEach;
 
 import java.util.ArrayList;
@@ -21,7 +23,7 @@ class EtudiantTest {
         f1.ajouterMatiere("Français", 2);
         f1.ajouterMatiere("Math", 4);
         f1.ajouterMatiere("NSI", 8);
-        f1.ajouterMatiere("");
+        f1.ajouterMatiere("Cine", 3);
         e1 = new Etudiant(i1, f1);
         e1.ajouterNote("Français", 12);
         e1.ajouterNote("Math", 15);
